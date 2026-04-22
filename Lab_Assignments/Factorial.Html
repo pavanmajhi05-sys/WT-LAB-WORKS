@@ -1,0 +1,53 @@
+<! A java script program to find the factorial of a number using recursion.>        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    input, button {
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 16px;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #555;
+    }
+  </style>
+</head>
+<body>
+    <h2> Factorial Of a Number</h2>
+    <label for="number">Enter a number:</label>
+    <br/>
+    <input type="number" id="number" min="0">
+    <button onclick="Factorial()">Calculate Factorial</button>
+    <div id="result"></div> 
+    <script>
+        function Factorial(n) {
+            const num = parseInt(document.getElementById('number').value);
+            if (isNaN(num) || num < 0) {
+                document.getElementById('result').innerText = 'Please enter a non-negative integer.';
+                return;
+            }
+            const result = factorial(num);
+            document.getElementById('result').innerText = `Factorial of ${num} is ${result}.`;
+        }
+
+        function factorial(n) {
+            if (n === 0 || n === 1) {
+                return 1;
+            }
+            return n * factorial(n - 1);
+        }
+    </script>
+</html>
